@@ -36,5 +36,9 @@ def remove(instance: Queue) -> None:
         )
 
 
-def file_metadata(instance, position):
-    """Aqui irá sua implementação"""
+def file_metadata(instance: Queue, position: int) -> None:
+    if position < 0 or position >= len(instance):
+        sys.stderr.write("Posição inválida\n")
+    else:
+        file_info = instance.search(position)
+        sys.stdout.write(str(file_info) + "\n")
